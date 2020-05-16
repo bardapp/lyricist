@@ -1,0 +1,13 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "dev",
+      "path": "packages/access/",
+      "problemMatcher": [],
+      "label": "npm: dev - packages/access",
+      "detail": "ts-node-dev --watch --respawn -- src/index.ts"
+    }
+  ]
+}
