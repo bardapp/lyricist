@@ -4,13 +4,17 @@ WORKDIR /build
 COPY . .
 
 RUN yarn install
-RUN yarn build
+RUN yarn workspace @lyricist/access build
 RUN rm -rf node_modules
 RUN rm -rf packages/access/node_modules
+RUN rm -rf packages/access/src
 
 FROM node:lts-alpine
 
-COPY --from=build /build/build .
+WORKDIR /app
+COPY --from=build /build/packages/access ./packages/access
+COPY --from=build /build/yarn.lock .
+COPY --from=build /build/package.json .
 
 RUN yarn install --production
 

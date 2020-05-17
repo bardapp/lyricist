@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: lyricist
+      POSTGRES_PASSWORD: lyricist
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+
+  redis:
+    image: redis
+
+  # access:
+  #   depends_on: [db, redis]
+  #   build:
+  #     context: .
+  #     dockerfile: packages/access/Dockerfile
+  #   command: yarn workspace @lyricist/access dev
+  #   volumes:
+  #     - './:/app'
+  #   environment:
+  #     DB_URI: postgres://lyricist:lyricist@db:5432/lyricist
+  #     REDIS_URI: redis
+  #   ports:
+  #     - '3000:3000'
+
+volumes:
+  dbdata: {}
