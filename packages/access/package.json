@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@koa/router": "^8.0.8",
-    "apollo-server-koa": "^2.13.1",
+    "apollo-server-koa": "^2.14.2",
     "class-validator": "^0.12.2",
     "graphql": "^15.0.0",
     "koa": "^2.11.0",
